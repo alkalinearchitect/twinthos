@@ -22,7 +22,7 @@
     --ink:#F2EFE9;
     --muted:rgba(242,239,233,.55);
     --hairline:rgba(242,239,233,.14);
-    --violet:#8b5cf6;
+    --red:#FF3B30;
     --font:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Inter","Arial",sans-serif;
     --pad:24px;
   }
@@ -106,12 +106,12 @@
   /* ---- live status dot ---- */
   .live{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
   .dot{
-    width:9px;height:9px;border-radius:50%;background:var(--violet);
-    box-shadow:0 0 0 0 rgba(139,92,246,.55);
+    width:9px;height:9px;border-radius:50%;background:var(--red);
+    box-shadow:0 0 0 0 rgba(255,59,48,.55);
     animation:pulse 2.6s ease-out infinite;
   }
   @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(139,92,246,.55);}
+    0%{box-shadow:0 0 0 0 rgba(255,59,48,.55);}
     70%{box-shadow:0 0 0 12px rgba(255,59,48,0);}
     100%{box-shadow:0 0 0 0 rgba(255,59,48,0);}
   }
@@ -179,7 +179,7 @@
   .guarantee{margin-top:18px;font-size:.85rem;letter-spacing:.06em;color:var(--muted);text-align:center}
   .hire{
     display:inline-block;margin-top:46px;
-    background:var(--violet);color:#fff;
+    background:var(--red);color:#fff;
     font-size:1.15rem;font-weight:600;letter-spacing:.02em;
     padding:20px 52px;border-radius:980px;
     min-height:48px;line-height:1;
@@ -359,4 +359,4 @@
 </body>
 </html>
 
-<style>:focus-visible{outline:2px solid #8b5cf6;outline-offset:3px}</style>
+<style>:focus-visible{outline:2px solid #FF3B30;outline-offset:3px}</style>
