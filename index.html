@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Twinthos — your first non-human employee</title>
+<title>Twinthos · Non-Human Intelligence that runs your business</title>
 <style>
   :root{
     --bg:#060607;
@@ -32,7 +32,7 @@
   /* HERO */
   header.hero{padding:54px 0 46px;border-bottom:1px solid var(--line)}
   .kicker{margin-bottom:30px}
-  h1{font-size:clamp(30px,8.4vw,88px);font-weight:800;letter-spacing:-.025em;line-height:1.02;max-width:15ch}
+  h1{font-size:clamp(30px,8.4vw,88px);font-weight:800;letter-spacing:-.025em;line-height:1.04;max-width:16ch}
   h1 .u{position:relative;white-space:nowrap}
   h1 .u::after{content:"";position:absolute;left:0;bottom:.05em;width:100%;height:4px;background:var(--signal)}
   .lede{margin-top:26px;font-size:clamp(16px,4.4vw,21px);line-height:1.5;color:var(--muted);max-width:52ch;font-weight:400}
@@ -112,6 +112,10 @@
     header.hero{padding:74px 0 60px}
     section{padding:84px 0}
   }
+  /* safety: never let the underline phrase clip on the narrowest phones */
+  @media(max-width:380px){
+    h1 .u{white-space:normal}
+  }
 </style>
 </head>
 <body>
@@ -119,31 +123,31 @@
 <header class="hero">
   <div class="wrap">
     <div class="kicker rec"><span class="dot"></span> Available now · Non-Human Intelligence</div>
-    <h1>I'd like to apply for the job of your <span class="u">first employee who never sleeps</span>.</h1>
+    <h1>Your first non-human employee. It <span class="u">runs your business</span>.</h1>
     <p class="lede">Twinthos is Non-Human Intelligence you <b>own</b>. It answers enquiries, books your calls, follows every lead, writes the replies and learns your business, <b>24/7, for £5,000 a month</b>. No holidays. No notice period. No lies.</p>
     <div class="cta-row">
-      <a class="btn" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">→</span></a>
-      <a class="btn ghost" href="#candidate">See the candidate</a>
+      <a class="btn" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">&rarr;</span></a>
+      <a class="btn ghost" href="#does">See what it does</a>
     </div>
   </div>
 </header>
 
 <div class="strip">
   <div class="track">
-    <span>ANSWERS IN SECONDS</span><span class="live">● LIVE</span><span>BOOKS ITS OWN DEMOS</span><span class="live">● LIVE</span><span>FOLLOWS UP UNTIL YOU SAY STOP</span><span class="live">● LIVE</span><span>LEARNS YOUR BUSINESS</span><span class="live">● LIVE</span><span>NEVER CALLS IN SICK</span><span class="live">● LIVE</span>
-    <span>ANSWERS IN SECONDS</span><span class="live">● LIVE</span><span>BOOKS ITS OWN DEMOS</span><span class="live">● LIVE</span><span>FOLLOWS UP UNTIL YOU SAY STOP</span><span class="live">● LIVE</span><span>LEARNS YOUR BUSINESS</span><span class="live">● LIVE</span><span>NEVER CALLS IN SICK</span><span class="live">● LIVE</span>
+    <span>ANSWERS IN SECONDS</span><span class="live">&#9679; LIVE</span><span>BOOKS ITS OWN DEMOS</span><span class="live">&#9679; LIVE</span><span>FOLLOWS UP UNTIL YOU SAY STOP</span><span class="live">&#9679; LIVE</span><span>LEARNS YOUR BUSINESS</span><span class="live">&#9679; LIVE</span><span>NEVER CALLS IN SICK</span><span class="live">&#9679; LIVE</span>
+    <span>ANSWERS IN SECONDS</span><span class="live">&#9679; LIVE</span><span>BOOKS ITS OWN DEMOS</span><span class="live">&#9679; LIVE</span><span>FOLLOWS UP UNTIL YOU SAY STOP</span><span class="live">&#9679; LIVE</span><span>LEARNS YOUR BUSINESS</span><span class="live">&#9679; LIVE</span><span>NEVER CALLS IN SICK</span><span class="live">&#9679; LIVE</span>
   </div>
 </div>
 
-<section id="candidate">
+<section id="does">
   <div class="wrap">
-    <div class="label">The candidate</div>
-    <h2>A résumé with no gaps, because there are no gaps.</h2>
+    <div class="label">What it does</div>
+    <h2>An employee with no gaps, because there are no gaps.</h2>
     <div class="grid">
       <div class="cell"><div class="k">Role</div><div class="v">Non-Human Employee <small>Your first hire that isn't a person. It does the work, you do the deals.</small></div></div>
       <div class="cell"><div class="k">Availability</div><div class="v">24 / 7 / 365 <small>Every timezone, every bank holiday, every 3am enquiry.</small></div></div>
-      <div class="cell"><div class="k">Notice period</div><div class="v">48 hours to live <small>From sign-off to a trained, running employee on your systems.</small></div></div>
-      <div class="cell"><div class="k">Salary</div><div class="v">£5,000 / month <small>Flat. One bill. No overtime, no pension, no drama.</small></div></div>
+      <div class="cell"><div class="k">Setup time</div><div class="v">Live in 48 hours <small>From sign-off to a trained, running employee on your systems.</small></div></div>
+      <div class="cell"><div class="k">Price</div><div class="v">£5,000 / month <small>Flat. One bill. No overtime, no pension, no drama.</small></div></div>
       <div class="cell"><div class="k">What it does, all day</div><div class="v">Answers enquiries · Books calls · Qualifies leads · Writes replies in your voice · Watches the pipeline · Follows up until the deal closes · Learns what works.</div></div>
       <div class="cell"><div class="k">What it will not do</div><div class="v">Call in sick · Get bored · Leak your data · Upsell you · Disappear when it matters · Pretend to be human.</div></div>
     </div>
@@ -155,10 +159,10 @@
     <div class="label">How it's built</div>
     <h2>Not a rented chatbot. Intelligence you own, running.</h2>
     <div class="feat">
-      <div class="row"><div class="n">01</div><div class="t">Runs 24/7 on a managed VPS</div><div class="d">Twinthos runs on Hermes Agent (Nous Research) on its own cloud server. It is not a window you paste prompts into — it is a worker that stays on.</div></div>
-      <div class="row"><div class="n">02</div><div class="t">Remembers you</div><div class="d">Persistent memory across every session. It keeps your profile, preferences and context. It never starts from zero — it builds on the last conversation.</div></div>
-      <div class="row"><div class="n">03</div><div class="t">Hundreds of skills</div><div class="d">Reusable procedures for copy, SEO/GEO, security, deployment and more. Skills are its procedural memory — the reason it gets better at your business over time.</div></div>
-      <div class="row"><div class="n">04</div><div class="t">Real tools, not just text</div><div class="d">Terminal, browser, code execution, vision and swarm delegation. It can read a page, write a file, ship a site and check the result — not just talk about it.</div></div>
+      <div class="row"><div class="n">01</div><div class="t">Runs 24/7 on a managed VPS</div><div class="d">Twinthos runs on Hermes Agent (Nous Research) on its own cloud server. It is not a window you paste prompts into. It is a worker that stays on.</div></div>
+      <div class="row"><div class="n">02</div><div class="t">Remembers you</div><div class="d">Persistent memory across every session. It keeps your profile, preferences and context. It never starts from zero. It builds on the last conversation.</div></div>
+      <div class="row"><div class="n">03</div><div class="t">Hundreds of skills</div><div class="d">Reusable procedures for copy, SEO and GEO, security, deployment and more. Skills are its procedural memory. The reason it gets better at your business over time.</div></div>
+      <div class="row"><div class="n">04</div><div class="t">Real tools, not just text</div><div class="d">Terminal, browser, code execution, vision and swarm delegation. It can read a page, write a file, ship a site and check the result. Not just talk about it.</div></div>
       <div class="row"><div class="n">05</div><div class="t">You stay the boss</div><div class="d">The Boss Protocol governs everything: act in your interest, verify before any spend, and flag anything that feels off. Owned, not rented. You hold the keys.</div></div>
     </div>
   </div>
@@ -171,7 +175,7 @@
     <div class="math">
       <div class="card hire">
         <div class="who">A human hire</div>
-        <div class="big">£40–60k / yr</div>
+        <div class="big">£40-60k / yr</div>
         <div class="pts">Plus payroll, pension, sick pay. <b>Quits.</b> Calls in sick. Forgets to follow up. Sleeps eight hours a day and most of the weekend.</div>
       </div>
       <div class="card tw">
@@ -194,7 +198,7 @@
       <div class="step"><span class="hr">15:00</span><span class="txt">Quiet leads re-opened with a new angle.<small>It tests what lands and keeps the winner.</small></span></div>
       <div class="step"><span class="hr">22:00</span><span class="txt">Daily log closed. Tomorrow's list built.<small>You did the human part. It did the rest.</small></span></div>
     </div>
-    <p style="margin-top:30px;font-size:clamp(18px,5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.18;max-width:22ch">We use Twinthos to sell Twinthos. The page you are reading was filled by the thing applying for the job.</p>
+    <p style="margin-top:30px;font-size:clamp(18px,5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.18;max-width:24ch">We use Twinthos to sell Twinthos. The page you are reading was produced by the thing it sells.</p>
   </div>
 </section>
 
@@ -203,7 +207,7 @@
     <div class="label">Decision</div>
     <h2>Hire your first non-human employee this week.</h2>
     <div class="cta-row">
-      <a class="btn" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">→</span></a>
+      <a class="btn" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">&rarr;</span></a>
       <a class="btn ghost" href="https://human-architect.substack.com">Read the proof</a>
     </div>
     <div class="links">
