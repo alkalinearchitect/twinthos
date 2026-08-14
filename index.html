@@ -9,71 +9,87 @@
     --bg:#060607;
     --ink:#F2EFE9;
     --muted:rgba(242,239,233,.55);
+    --faint:rgba(242,239,233,.32);
     --line:rgba(242,239,233,.14);
     --signal:#FF3B30;
     --inv:#F2EFE9;
     --inv-ink:#060607;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);color:var(--ink);
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;line-height:1.1;
-    overflow-x:hidden;
-  }
-  .wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 22px}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.1;overflow-x:hidden}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
   a{color:inherit;text-decoration:none}
 
-  .rec{display:inline-flex;align-items:center;gap:9px;font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  /* status row */
+  .rec{display:inline-flex;align-items:center;gap:9px;font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
   .rec .dot{width:9px;height:9px;border-radius:50%;background:var(--signal);animation:pulse 1.6s infinite;flex:none}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.55)}70%{box-shadow:0 0 0 12px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
 
   /* HERO */
-  header.hero{padding:54px 0 46px;border-bottom:1px solid var(--line)}
-  .kicker{margin-bottom:30px}
-  h1{font-size:clamp(30px,8.4vw,88px);font-weight:800;letter-spacing:-.025em;line-height:1.04;max-width:16ch}
+  header.hero{padding:50px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{margin-bottom:28px}
+  h1{font-size:clamp(33px,9vw,96px);font-weight:800;letter-spacing:-.03em;line-height:1.0;max-width:14ch}
   h1 .u{position:relative;white-space:nowrap}
-  h1 .u::after{content:"";position:absolute;left:0;bottom:.05em;width:100%;height:4px;background:var(--signal)}
-  .lede{margin-top:26px;font-size:clamp(16px,4.4vw,21px);line-height:1.5;color:var(--muted);max-width:52ch;font-weight:400}
+  h1 .u::after{content:"";position:absolute;left:0;bottom:.04em;width:100%;height:5px;background:var(--signal)}
+  .lede{margin-top:24px;font-size:clamp(16px,4.4vw,21px);line-height:1.5;color:var(--muted);max-width:54ch;font-weight:400}
   .lede b{color:var(--ink);font-weight:600}
-  .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+  .cta-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--ink);color:var(--inv-ink);font-weight:700;font-size:16px;padding:16px 24px;border-radius:2px;min-height:52px;transition:transform .15s ease}
   .btn:active{transform:translateY(1px)}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);min-height:52px}
   .arrow{font-size:18px}
 
+  /* LIVE OPERATOR PANEL */
+  .ops{margin-top:36px;border:1px solid var(--line);border-radius:4px;background:#0b0b0d;overflow:hidden}
+  .ops .bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line);font:600 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  .ops .bar .live{color:var(--signal);margin-left:auto;display:inline-flex;align-items:center;gap:6px}
+  .ops .bar .live .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);animation:pulse 1.6s infinite}
+  .ops .log{padding:14px 14px 16px;font:500 13.5px/1.85 var(--mono);color:var(--muted)}
+  .ops .log .l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ops .log .l .p{color:var(--signal)}
+  .ops .log .l .ok{color:var(--ink)}
+
   /* MARQUEE */
   .strip{border-bottom:1px solid var(--line);overflow:hidden;padding:14px 0}
-  .strip .track{display:inline-flex;white-space:nowrap;will-change:transform;animation:scroll 22s linear infinite}
-  .strip span{font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:0 22px}
+  .strip .track{display:inline-flex;white-space:nowrap;will-change:transform;animation:scroll 24s linear infinite}
+  .strip span{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:0 22px}
   .strip .live{color:var(--signal)}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* SECTION */
-  section{padding:60px 0;border-bottom:1px solid var(--line)}
-  .label{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--signal);margin-bottom:22px}
+  section{padding:58px 0;border-bottom:1px solid var(--line)}
+  .label{font:600 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--signal);margin-bottom:20px}
   h2{font-size:clamp(27px,7vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.03;max-width:18ch}
+  h3{font-size:clamp(19px,5vw,26px);font-weight:800;letter-spacing:-.01em;line-height:1.1;margin-top:30px}
 
-  .grid{margin-top:38px;border-top:1px solid var(--line)}
+  .grid{margin-top:34px;border-top:1px solid var(--line)}
   .cell{padding:22px 0;border-bottom:1px solid var(--line)}
-  .cell .k{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .cell .k{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
   .cell .v{font-size:clamp(19px,5.5vw,27px);font-weight:700;letter-spacing:-.01em;line-height:1.15}
   .cell .v small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:8px;line-height:1.45;letter-spacing:0}
 
-  /* BUILT section */
-  .feat{margin-top:34px;display:grid;gap:0}
+  /* CAPABILITY COMMANDS */
+  .cmds{margin-top:30px;display:grid;gap:10px}
+  .cmd{border:1px solid var(--line);border-radius:3px;padding:14px 16px;font:600 13px/1.4 var(--mono);color:var(--ink);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .cmd .sig{color:var(--signal)}
+  .cmd .desc{color:var(--muted);font-weight:500}
+
+  /* BUILT */
+  .feat{margin-top:32px;display:grid;gap:0}
   .feat .row{padding:20px 0;border-top:1px solid var(--line);display:grid;gap:8px}
-  .feat .row .n{font:700 13px/1 ui-monospace,Menlo,monospace;color:var(--signal)}
+  .feat .row .n{font:700 13px/1 var(--mono);color:var(--signal)}
   .feat .row .t{font-size:clamp(18px,5vw,24px);font-weight:700;letter-spacing:-.01em}
   .feat .row .d{font-size:15px;color:var(--muted);line-height:1.5}
 
   /* MATH */
-  .math{margin-top:34px;display:grid;gap:14px}
+  .math{margin-top:32px;display:grid;gap:14px}
   .math .card{border:1px solid var(--line);border-radius:3px;padding:22px}
   .math .card.hire{border-color:rgba(242,239,233,.28)}
   .math .card.tw{border-color:var(--signal)}
-  .math .card .who{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .math .card .who{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
   .math .card.tw .who{color:var(--signal)}
   .math .card .big{font-size:clamp(26px,8vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1}
   .math .card .pts{margin-top:14px;font-size:14px;color:var(--muted);line-height:1.55}
@@ -83,19 +99,21 @@
   .inv{background:var(--inv);color:var(--inv-ink);border-bottom:1px solid var(--inv)}
   .inv .label{color:var(--signal)}
   .inv h2{color:var(--inv-ink)}
-  .day{margin-top:34px;display:grid;gap:0}
+  .day{margin-top:32px;display:grid;gap:0}
   .day .step{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:18px 0;border-top:1px solid rgba(6,6,7,.12);align-items:baseline}
-  .day .step .hr{font:700 14px/1 ui-monospace,Menlo,monospace;color:var(--signal)}
+  .day .step .hr{font:700 14px/1 var(--mono);color:var(--signal)}
   .day .step .txt{font-size:clamp(16px,4.6vw,20px);font-weight:600;letter-spacing:-.01em;line-height:1.2}
   .day .step .txt small{display:block;font-weight:400;color:rgba(6,6,7,.55);font-size:14px;margin-top:6px;line-height:1.45}
+  .inv .proof{margin-top:30px;font-size:clamp(18px,5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.18;max-width:24ch}
+  .inv .proof em{font-style:normal;color:var(--signal)}
 
   /* FINAL */
-  .final{padding:64px 0 50px}
-  .final .cta-row{margin-top:32px}
-  .links{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px 22px;font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
+  .final{padding:62px 0 48px}
+  .final .cta-row{margin-top:30px}
+  .links{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 22px;font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
   .links a{color:var(--muted);border-bottom:1px solid transparent;padding:6px 0;transition:color .15s}
   .links a:active{color:var(--ink)}
-  footer{padding:30px 0 52px;color:var(--muted);font:500 11px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.04em}
+  footer{padding:30px 0 52px;color:var(--muted);font:500 11px/1.6 var(--mono);letter-spacing:.04em}
   footer b{color:var(--ink)}
 
   @media(min-width:680px){
@@ -103,18 +121,23 @@
     .grid{display:grid;grid-template-columns:1fr 1fr;column-gap:36px}
     .cell{padding-right:20px}
     .math{grid-template-columns:1fr 1fr}
+    .cmds{grid-template-columns:1fr 1fr}
     .day .step{grid-template-columns:84px 1fr;gap:22px}
     .links a:hover{color:var(--ink);border-color:var(--signal)}
     .btn:hover{transform:translateY(-2px)}
     .btn.ghost:hover{border-color:var(--ink)}
   }
+  @media(min-width:900px){
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+    .ops{margin-top:0}
+  }
   @media(min-width:1024px){
     header.hero{padding:74px 0 60px}
     section{padding:84px 0}
   }
-  /* safety: never let the underline phrase clip on the narrowest phones */
   @media(max-width:380px){
     h1 .u{white-space:normal}
+    h1{font-size:30px}
   }
 </style>
 </head>
@@ -122,12 +145,28 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="kicker rec"><span class="dot"></span> Available now · Non-Human Intelligence</div>
-    <h1>Your first non-human employee. It <span class="u">runs your business</span>.</h1>
-    <p class="lede">Twinthos is Non-Human Intelligence you <b>own</b>. It answers enquiries, books your calls, follows every lead, writes the replies and learns your business, <b>24/7, for £5,000 a month</b>. No holidays. No notice period. No lies.</p>
-    <div class="cta-row">
-      <a class="btn" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">&rarr;</span></a>
-      <a class="btn ghost" href="#does">See what it does</a>
+    <div class="kicker rec"><span class="dot"></span> Operational · Non-Human Intelligence</div>
+    <div class="hero-grid">
+      <div>
+        <h1>It <span class="u">works</span> while you sleep.</h1>
+        <p class="lede">Twinthos is Non-Human Intelligence you <b>own</b>. It answers enquiries, books your calls, follows every lead, writes the replies and learns your business, <b>24/7, for £5,000 a month</b>. No holidays. No notice period. No lies.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">&rarr;</span></a>
+          <a class="btn ghost" href="#does">See what it does</a>
+        </div>
+      </div>
+      <div class="ops" aria-hidden="true">
+        <div class="bar">TWINTHOS · LIVE <span class="live"><span class="dot"></span> running</span></div>
+        <div class="log">
+          <div class="l"><span class="p">$</span> reads your inbox</div>
+          <div class="l"><span class="p">$</span> answers the enquiry <span class="ok">· done</span></div>
+          <div class="l"><span class="p">$</span> books the call <span class="ok">· invited</span></div>
+          <div class="l"><span class="p">$</span> writes the reply <span class="ok">· in your voice</span></div>
+          <div class="l"><span class="p">$</span> qualifies the lead <span class="ok">· hot</span></div>
+          <div class="l"><span class="p">$</span> ships the page <span class="ok">· verified</span></div>
+          <div class="l"><span class="p">$</span> follows up <span class="ok">· until close</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -150,6 +189,21 @@
       <div class="cell"><div class="k">Price</div><div class="v">£5,000 / month <small>Flat. One bill. No overtime, no pension, no drama.</small></div></div>
       <div class="cell"><div class="k">What it does, all day</div><div class="v">Answers enquiries · Books calls · Qualifies leads · Writes replies in your voice · Watches the pipeline · Follows up until the deal closes · Learns what works.</div></div>
       <div class="cell"><div class="k">What it will not do</div><div class="v">Call in sick · Get bored · Leak your data · Upsell you · Disappear when it matters · Pretend to be human.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="label">Capabilities</div>
+    <h2>Real tools. Not just text on a screen.</h2>
+    <div class="cmds">
+      <div class="cmd"><span class="sig">$</span> twinthos --research <span class="desc">scrapes, reads, cites real sources</span></div>
+      <div class="cmd"><span class="sig">$</span> twinthos --write <span class="desc">posts, replies, briefs in your voice</span></div>
+      <div class="cmd"><span class="sig">$</span> twinthos --code <span class="desc">Python, builds, scripts, ships</span></div>
+      <div class="cmd"><span class="sig">$</span> twinthos --browser <span class="desc">live web, clicks, screenshots</span></div>
+      <div class="cmd"><span class="sig">$</span> twinthos --vision <span class="desc">reads images and rendered pages</span></div>
+      <div class="cmd"><span class="sig">$</span> twinthos --swarm <span class="desc">fans work to subagents, verifies</span></div>
     </div>
   </div>
 </section>
@@ -198,7 +252,7 @@
       <div class="step"><span class="hr">15:00</span><span class="txt">Quiet leads re-opened with a new angle.<small>It tests what lands and keeps the winner.</small></span></div>
       <div class="step"><span class="hr">22:00</span><span class="txt">Daily log closed. Tomorrow's list built.<small>You did the human part. It did the rest.</small></span></div>
     </div>
-    <p style="margin-top:30px;font-size:clamp(18px,5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.18;max-width:24ch">We use Twinthos to sell Twinthos. The page you are reading was produced by the thing it sells.</p>
+    <p class="proof">We use Twinthos to sell Twinthos. <em>The page you are reading was produced by the thing it sells.</em></p>
   </div>
 </section>
 
