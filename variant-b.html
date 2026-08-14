@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060607">
+<title>TWINTHOS · Non-Human Intelligence, owned. Not hired.</title>
+<style>
+  :root{
+    --bg:#060607;
+    --ink:#F2EFE9;
+    --muted:rgba(242,239,233,.55);
+    --faint:rgba(242,239,233,.32);
+    --hair:rgba(242,239,233,.14);
+    --red:#FF3B30;
+    --pad:22px;
+    --maxw:1400px;
+    --serif:'Helvetica Neue',Helvetica,Inter,Arial,sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-weight:400;
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;}
+
+  .wrap{
+    width:100%;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 var(--pad);
+  }
+
+  /* ---------- shared editorial bits ---------- */
+  .label{
+    font-size:.66rem;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+  }
+  .rule{
+    height:1px;
+    width:100%;
+    background:var(--hair);
+    border:0;
+  }
+  .red{color:var(--red);}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    background:rgba(6,6,7,.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--hair);
+  }
+  nav .navin{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:60px;
+  }
+  .brandmark{
+    font-weight:800;
+    letter-spacing:.42em;
+    font-size:.82rem;
+    padding-left:.42em;
+  }
+  .navlinks{display:flex;align-items:center;gap:6px;}
+  .navlinks a{
+    display:flex;align-items:center;justify-content:center;
+    min-height:48px;min-width:64px;
+    font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+    transition:color .25s ease;
+  }
+  .navlinks a:hover{color:var(--ink);}
+  .nav-hire{
+    color:var(--ink)!important;
+    border:1px solid var(--hair);
+    padding:0 16px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    padding-top:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+  }
+  .hero-top{
+    padding-top:34px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .hero-index{
+    writing-mode:vertical-rl;
+    text-orientation:mixed;
+    font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--faint);
+    position:absolute;
+    right:14px;top:120px;
+  }
+  .hero-head{
+    padding:8px 0 0;
+  }
+  .display{
+    font-weight:800;
+    line-height:.86;
+    letter-spacing:-.045em;
+    text-transform:uppercase;
+    font-size:clamp(3.4rem,15.5vw,12rem);
+  }
+  .display .ln{display:block;overflow:hidden;}
+  .display .ln span{display:block;}
+  .display .out{margin-left:-.04em;}
+  .display .own{color:var(--ink);}
+  .hero-sub{
+    max-width:30ch;
+    margin-top:26px;
+    color:var(--muted);
+    font-size:clamp(.98rem,2.7vw,1.18rem);
+    line-height:1.55;
+  }
+  .hero-sub b{color:var(--ink);font-weight:600;}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:14px 26px;
+    margin-top:26px;
+  }
+  .hero-meta div{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+  .hero-meta div b{color:var(--ink);display:block;font-size:1.05rem;letter-spacing:.02em;margin-top:4px;font-weight:600;}
+
+  /* ---------- RUNWAY MARQUEE ---------- */
+  .runway{
+    position:relative;
+    border-top:1px solid var(--hair);
+    border-bottom:1px solid var(--hair);
+    background:var(--bg);
+  }
+  .marq{
+    display:flex;
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .marq + .marq{border-top:1px solid var(--hair);}
+  .track{
+    display:inline-flex;
+    flex-shrink:0;
+    align-items:center;
+    will-change:transform;
+  }
+  .track.a{animation:scrollL 34s linear infinite;}
+  .track.b{animation:scrollR 28s linear infinite;}
+  .marq:hover .track{animation-play-state:paused;}
+  .track span{
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-.02em;
+    font-size:clamp(1.6rem,5.6vw,3.6rem);
+    padding:14px 26px;
+    line-height:1;
+  }
+  .track span.dot{color:var(--faint);font-weight:400;padding:14px 6px;}
+  .track span.accent{color:var(--red);}
+  @keyframes scrollL{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes scrollR{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:74px 0;position:relative;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:38px;
+  }
+  .sec-head h2{
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-.035em;
+    line-height:.94;
+    font-size:clamp(2.1rem,8.5vw,5.4rem);
+  }
+
+  /* ---------- WHAT IT DOES ---------- */
+  .does-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  .does-lead{
+    font-weight:600;
+    font-size:clamp(1.5rem,5.4vw,3.1rem);
+    line-height:1.04;
+    letter-spacing:-.02em;
+  }
+  .does-lead em{font-style:normal;color:var(--muted);}
+  .does-list{display:grid;grid-template-columns:1fr;gap:0;}
+  .does-list .row{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:18px;
+    padding:20px 0;
+    border-top:1px solid var(--hair);
+    align-items:baseline;
+  }
+  .does-list .row:last-child{border-bottom:1px solid var(--hair);}
+  .does-list .n{font-size:.7rem;letter-spacing:.2em;color:var(--faint);font-weight:600;padding-top:4px;}
+  .does-list .t{font-weight:700;font-size:clamp(1.05rem,3.2vw,1.45rem);letter-spacing:-.01em;}
+  .does-list .d{color:var(--muted);font-size:.95rem;margin-top:6px;line-height:1.5;}
+
+  /* ---------- CAPABILITIES ---------- */
+  .cap-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    border-top:1px solid var(--hair);
+  }
+  .cap{
+    border-bottom:1px solid var(--hair);
+    padding:30px 0;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .cap .idx{font-size:.66rem;letter-spacing:.3em;color:var(--faint);font-weight:600;}
+  .cap h3{
+    font-weight:800;text-transform:uppercase;
+    letter-spacing:-.02em;
+    font-size:clamp(1.4rem,5vw,2.4rem);
+    line-height:.98;
+  }
+  .cap p{color:var(--muted);font-size:.96rem;line-height:1.55;max-width:46ch;}
+
+  /* ---------- HOW IT'S BUILT ---------- */
+  .built{
+    border-top:1px solid var(--hair);
+    border-bottom:1px solid var(--hair);
+  }
+  .built-grid{
+    display:grid;grid-template-columns:1fr;gap:30px;
+  }
+  .built-lead{
+    font-weight:600;
+    font-size:clamp(1.4rem,5vw,2.8rem);
+    line-height:1.06;letter-spacing:-.02em;
+  }
+  .built-lead .q{color:var(--muted);}
+  .spec{
+    display:grid;grid-template-columns:1fr;gap:0;
+  }
+  .spec .s{
+    padding:18px 0;
+    border-top:1px solid var(--hair);
+    display:grid;grid-template-columns:1fr;gap:6px;
+  }
+  .spec .s:first-child{border-top:0;}
+  .spec .k{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);font-weight:600;}
+  .spec .v{font-size:1.02rem;color:var(--ink);line-height:1.5;}
+  .spec .v b{font-weight:700;}
+
+  /* ---------- THE MATHS ---------- */
+  .maths{border-top:1px solid var(--hair);}
+  .vs{
+    display:grid;grid-template-columns:1fr;gap:0;
+    border-bottom:1px solid var(--hair);
+  }
+  .vs .col{padding:26px 0;border-top:1px solid var(--hair);}
+  .vs .col:first-child{border-top:0;}
+  .vs .col h3{
+    font-weight:800;text-transform:uppercase;letter-spacing:-.02em;
+    font-size:clamp(1.6rem,6vw,2.6rem);
+  }
+  .vs .col.human h3{color:var(--muted);}
+  .vs .col.twin h3{color:var(--ink);}
+  .vs .col .tag{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);margin-bottom:14px;font-weight:600;}
+  .metric{
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:14px;padding:13px 0;border-top:1px solid var(--hair);
+  }
+  .metric:first-of-type{border-top:0;}
+  .metric .mk{font-size:.82rem;color:var(--muted);letter-spacing:.02em;}
+  .metric .mv{font-weight:700;font-size:clamp(1rem,3.4vw,1.4rem);text-align:right;letter-spacing:-.01em;}
+  .vs .col.twin .mv{color:var(--ink);}
+  .vs .col.human .mv{color:var(--muted);}
+  .maths-verdict{
+    margin-top:30px;
+    font-weight:700;
+    font-size:clamp(1.2rem,4.6vw,2.2rem);
+    line-height:1.1;letter-spacing:-.02em;
+  }
+  .maths-verdict .red{font-weight:800;}
+
+  /* ---------- A DAY IN THE LIFE ---------- */
+  .day{border-top:1px solid var(--hair);}
+  .day-list{
+    display:grid;grid-template-columns:1fr;gap:0;
+    border-top:1px solid var(--hair);
+  }
+  .day-row{
+    display:grid;grid-template-columns:84px 1fr;gap:18px;
+    padding:22px 0;border-bottom:1px solid var(--hair);align-items:baseline;
+  }
+  .day-row .time{font-weight:800;font-size:1.3rem;letter-spacing:.01em;color:var(--ink);}
+  .day-row .time small{display:block;font-size:.6rem;letter-spacing:.24em;color:var(--faint);font-weight:600;margin-top:4px;}
+  .day-row .act{font-size:clamp(1.02rem,3.2vw,1.35rem);font-weight:600;line-height:1.25;}
+  .day-row .act span{display:block;color:var(--muted);font-weight:400;font-size:.92rem;margin-top:5px;}
+
+  /* ---------- PROOF ---------- */
+  .proof{
+    border-top:1px solid var(--hair);
+    border-bottom:1px solid var(--hair);
+    padding:88px 0;
+  }
+  .proof .kicker{margin-bottom:24px;}
+  .proof .statement{
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-.04em;
+    line-height:.92;
+    font-size:clamp(2.4rem,10vw,7rem);
+  }
+  .proof .statement .qm{color:var(--muted);}
+  .proof .by{
+    margin-top:30px;color:var(--muted);
+    font-size:clamp(.95rem,2.8vw,1.1rem);line-height:1.55;max-width:48ch;
+  }
+  .proof .by b{color:var(--ink);font-weight:600;}
+
+  /* ---------- FINAL CTA ---------- */
+  .cta{
+    padding:96px 0 60px;
+    text-align:left;
+  }
+  .cta h2{
+    font-weight:800;text-transform:uppercase;letter-spacing:-.045em;
+    line-height:.84;
+    font-size:clamp(3.4rem,17vw,13rem);
+    margin-bottom:8px;
+  }
+  .cta p{
+    color:var(--muted);max-width:34ch;
+    font-size:clamp(1rem,3vw,1.2rem);line-height:1.5;margin:22px 0 36px;
+  }
+  .btn-hire{
+    display:inline-flex;align-items:center;justify-content:center;
+    gap:12px;
+    min-height:60px;
+    padding:0 40px;
+    background:var(--red);
+    color:#060607;
+    font-weight:800;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    font-size:1.05rem;
+    border:0;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .btn-hire:hover{transform:translateY(-2px);background:#ff5147;}
+  .cta .fine{
+    margin-top:22px;
+    font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  }
+
+  /* ---------- LINK ROW / FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--hair);
+    padding:40px 0 56px;
+  }
+  .linkrow{
+    display:flex;flex-wrap:wrap;gap:8px 8px;margin-bottom:34px;
+  }
+  .linkrow a{
+    display:flex;align-items:center;justify-content:center;
+    min-height:48px;padding:0 20px;
+    border:1px solid var(--hair);
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+    color:var(--muted);
+    transition:color .25s ease,border-color .25s ease;
+  }
+  .linkrow a:hover{color:var(--ink);border-color:var(--faint);}
+  .footmeta{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);
+  }
+
+  /* ---------- DESKTOP SCALE ---------- */
+  @media(min-width:760px){
+    :root{--pad:54px;}
+    .hero-index{right:34px;top:140px;font-size:.66rem;}
+    .does-grid{grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;}
+    .does-list .row{grid-template-columns:54px 1fr;}
+    .cap-grid{grid-template-columns:1fr 1fr;}
+    .cap{padding:42px 34px 42px 0;}
+    .cap:nth-child(odd){border-right:0;}
+    .cap{border-right:1px solid var(--hair);}
+    .cap:nth-child(2n){padding-left:34px;}
+    .cap:nth-child(2n){border-right:0;}
+    .built-grid{grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start;}
+    .vs{grid-template-columns:1fr 1fr;}
+    .vs .col{border-top:0;padding:40px 40px 40px 0;}
+    .vs .col.twin{border-left:1px solid var(--hair);padding-left:40px;}
+    .day-list{grid-template-columns:1fr 1fr;}
+    .day-row{border-bottom:1px solid var(--hair);}
+    .day-row:nth-child(odd){border-right:1px solid var(--hair);padding-right:40px;}
+    .day-row:nth-child(even){padding-left:40px;}
+  }
+  @media(min-width:1100px){
+    .cap-grid{grid-template-columns:1fr 1fr 1fr;}
+    .cap{border-right:1px solid var(--hair);}
+    .cap:nth-child(2n){border-right:1px solid var(--hair);}
+    .cap:nth-child(3n){border-right:0;padding-left:34px;}
+    .cap:nth-child(2n){padding-left:0;}
+    .cap:nth-child(3n-1){padding-left:34px;}
+    .cap:nth-child(3n-2){padding-right:34px;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .track{animation:none!important;}
+  }
+</style>
+</head>
+<body id="top">
+
+<nav>
+  <div class="wrap navin">
+    <a href="#top" class="brandmark">TWINTHOS</a>
+    <div class="navlinks">
+      <a href="#proof">Proof</a>
+      <a href="#hire" class="nav-hire">Hire</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-index">N&deg;01 / NON-HUMAN INTELLIGENCE</div>
+  <div class="wrap hero-top">
+    <div class="label">Autonomous &middot; Owned &middot; Relentless</div>
+    <div class="label">UK &middot; &pound;5,000 / MO</div>
+  </div>
+
+  <div class="wrap hero-head">
+    <h1 class="display">
+      <span class="ln"><span>You don&rsquo;t</span></span>
+      <span class="ln"><span>hire it.</span></span>
+      <span class="ln"><span class="out own">You own it<span class="red">!</span></span></span>
+    </h1>
+    <p class="hero-sub">An autonomous Non-Human Intelligence that runs your UK SME <b>24/7</b>. It answers, qualifies, books and closes. Flat <b>&pound;5,000 a month</b>. No salary. No sick days. No notice period.</p>
+    <div class="hero-meta">
+      <div>Live in<b>~48 hours</b></div>
+      <div>Built by<b>Human Architect</b></div>
+      <div>Runs on<b>Hermes Agent</b></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ RUNWAY MARQUEE ============ -->
+<div class="runway" aria-hidden="true">
+  <div class="marq">
+    <div class="track a">
+      <span>Autonomous</span><span class="dot">&middot;</span><span>Owned</span><span class="dot">&middot;</span><span>Relentless</span><span class="dot">&middot;</span><span>24/7</span><span class="dot">&middot;</span><span>Never quits</span><span class="dot">&middot;</span><span>&pound;5K / month</span><span class="dot">&middot;</span>
+      <span>Autonomous</span><span class="dot">&middot;</span><span>Owned</span><span class="dot">&middot;</span><span>Relentless</span><span class="dot">&middot;</span><span>24/7</span><span class="dot">&middot;</span><span>Never quits</span><span class="dot">&middot;</span><span>&pound;5K / month</span><span class="dot">&middot;</span>
+    </div>
+  </div>
+  <div class="marq">
+    <div class="track b">
+      <span>Answers</span><span class="dot">&middot;</span><span>Qualifies</span><span class="dot">&middot;</span><span>Books</span><span class="dot">&middot;</span><span class="red">Follows up</span><span class="dot">&middot;</span><span>Closes</span><span class="dot">&middot;</span><span>Learns</span><span class="dot">&middot;</span>
+      <span>Answers</span><span class="dot">&middot;</span><span>Qualifies</span><span class="dot">&middot;</span><span>Books</span><span class="dot">&middot;</span><span class="red">Follows up</span><span class="dot">&middot;</span><span>Closes</span><span class="dot">&middot;</span><span>Learns</span><span class="dot">&middot;</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WHAT IT DOES ============ -->
+<section id="does">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">N&deg;02 &middot; What it does</div>
+      <div class="label">The work, done</div>
+    </div>
+    <div class="does-grid">
+      <div class="does-lead">It is the <em>front line</em> of your business. The first reply, the last follow-up, the close in between.</div>
+      <div class="does-list">
+        <div class="row"><div class="n">01</div><div><div class="t">Answers every enquiry</div><div class="d">Incoming leads get a real reply in your voice, within minutes, at any hour.</div></div></div>
+        <div class="row"><div class="n">02</div><div><div class="t">Books the calls</div><div class="d">Qualified prospects land straight in your calendar, no back-and-forth.</div></div></div>
+        <div class="row"><div class="n">03</div><div><div class="t">Qualifies the leads</div><div class="d">It scores fit and intent, so you only speak to buyers who are ready.</div></div></div>
+        <div class="row"><div class="n">04</div><div><div class="t">Writes in your voice</div><div class="d">Replies read like you wrote them. Tone, standards, signature included.</div></div></div>
+        <div class="row"><div class="n">05</div><div><div class="t">Watches the pipeline</div><div class="d">Every deal tracked. Every stall surfaced before it goes cold.</div></div></div>
+        <div class="row"><div class="n">06</div><div><div class="t">Follows up until close</div><div class="d">No lead forgotten. It stays on the thread until the deal is signed.</div></div></div>
+        <div class="row"><div class="n">07</div><div><div class="t">Learns what works</div><div class="d">Each cycle makes the next one sharper. It compounds, you don&rsquo;t train it.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES ============ -->
+<section id="caps">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The<br>capabilities</h2>
+      <div class="label">N&deg;03 &middot; Engine</div>
+    </div>
+    <div class="cap-grid">
+      <div class="cap"><div class="idx">C / 01</div><h3>Persistent memory</h3><p>Every client, every deal, every preference held indefinitely. It remembers what a human forgets by Friday.</p></div>
+      <div class="cap"><div class="idx">C / 02</div><h3>Hundreds of skills</h3><p>A loaded toolkit of capabilities, not a single prompt. It reaches for the right one, unprompted.</p></div>
+      <div class="cap"><div class="idx">C / 03</div><h3>Real tools</h3><p>Terminal, browser, code, vision and a swarm of agents. It acts in the world, not just in chat.</p></div>
+      <div class="cap"><div class="idx">C / 04</div><h3>Boss Protocol</h3><p>Human Architect is boss. Twinthos verifies before it spends, before it sends, before it commits.</p></div>
+      <div class="cap"><div class="idx">C / 05</div><h3>Always on</h3><p>24/7 on a managed VPS. It does not sleep through the enquiry that arrives at 2am.</p></div>
+      <div class="cap"><div class="idx">C / 06</div><h3>Owned, not leased</h3><p>You hold it. It does not resign, renegotiate or take your pipeline to a competitor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT'S BUILT ============ -->
+<section id="built" class="built">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">N&deg;04 &middot; How it&rsquo;s built</div>
+      <div class="label">No mystery</div>
+    </div>
+    <div class="built-grid">
+      <div class="built-lead"><span class="q">&ldquo;</span>Built by hand in Bath. Run on a machine that does not blink.<span class="q">&rdquo;</span></div>
+      <div class="spec">
+        <div class="s"><div class="k">Maker</div><div class="v"><b>Human Architect</b>, Bath, United Kingdom. The operator, not a vendor.</div></div>
+        <div class="s"><div class="k">Platform</div><div class="v">Runs on <b>Hermes Agent</b> by Nous Research, on a managed VPS you control.</div></div>
+        <div class="s"><div class="k">Memory</div><div class="v">Persistent, long-term. Your business stays in its head between sessions.</div></div>
+        <div class="s"><div class="k">Tooling</div><div class="v">Terminal, browser, code, vision and a swarm of sub-agents on call.</div></div>
+        <div class="s"><div class="k">Governance</div><div class="v"><b>Boss Protocol</b>. Human Architect is the boss. It verifies before it spends.</div></div>
+        <div class="s"><div class="k">Setup</div><div class="v">From sign-off to live in <b>~48 hours</b>. A window, not a guarantee.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MATHS ============ -->
+<section id="maths" class="maths">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The<br>maths</h2>
+      <div class="label">N&deg;05 &middot; Human vs Twinthos</div>
+    </div>
+    <div class="vs">
+      <div class="col human">
+        <div class="tag">The human hire</div>
+        <h3>A person</h3>
+        <div class="metric"><span class="mk">Cost</span><span class="mv">&pound;40-60k + NI</span></div>
+        <div class="metric"><span class="mk">Hours / year</span><span class="mv">~1,950</span></div>
+        <div class="metric"><span class="mk">Sick days</span><span class="mv">Yes</span></div>
+        <div class="metric"><span class="mk">Quits</span><span class="mv">Yes</span></div>
+        <div class="metric"><span class="mk">Consistency</span><span class="mv">Drops</span></div>
+        <div class="metric"><span class="mk">Owns pipeline</span><span class="mv">No</span></div>
+      </div>
+      <div class="col twin">
+        <div class="tag">The owned intelligence</div>
+        <h3>Twinthos</h3>
+        <div class="metric"><span class="mk">Cost</span><span class="mv">&pound;5k / mo flat</span></div>
+        <div class="metric"><span class="mk">Hours / year</span><span class="mv">8,760</span></div>
+        <div class="metric"><span class="mk">Sick days</span><span class="mv">Never</span></div>
+        <div class="metric"><span class="mk">Quits</span><span class="mv">Never</span></div>
+        <div class="metric"><span class="mk">Consistency</span><span class="mv">Total</span></div>
+        <div class="metric"><span class="mk">Owns pipeline</span><span class="mv">Yes</span></div>
+      </div>
+    </div>
+    <div class="maths-verdict">Same spend. <span class="red">4.5&times;</span> the hours. Zero of the risk. You don&rsquo;t employ it. You own it.</div>
+  </div>
+</section>
+
+<!-- ============ A DAY IN THE LIFE ============ -->
+<section id="day" class="day">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>A day in<br>the life</h2>
+      <div class="label">N&deg;06 &middot; 24 / 7</div>
+    </div>
+    <div class="day-list">
+      <div class="day-row"><div class="time">00:00<small>Overnight</small></div><div class="act">Watches the pipeline while you sleep<span>Surfaces the deal that slipped and queues the move.</span></div></div>
+      <div class="day-row"><div class="time">06:00<small>Morning</small></div><div class="act">Answers the enquiry from 2am<span>A qualified reply, in your voice, already in the thread.</span></div></div>
+      <div class="day-row"><div class="time">09:00<small>Open</small></div><div class="act">Books two calls into your calendar<span>Only the ones it scored as ready to buy.</span></div></div>
+      <div class="day-row"><div class="time">13:00<small>Midday</small></div><div class="act">Follows up the deal that went cold<span>Polite, persistent, impossible to ignore.</span></div></div>
+      <div class="day-row"><div class="time">18:00<small>Close</small></div><div class="act">Writes your reply and sends it<span>You approve, or it sends on protocol. Your call.</span></div></div>
+      <div class="day-row"><div class="time">23:00<small>Log</small></div><div class="act">Records what worked, then repeats<span>The next day starts sharper than this one.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section id="proof" class="proof">
+  <div class="wrap">
+    <div class="label kicker">N&deg;07 &middot; The proof</div>
+    <div class="statement">We use<br>Twinthos<br>to sell <span class="qm">Twinthos.</span></div>
+    <p class="by">The most demanding client is the builder. <b>Human Architect runs its own business on the very intelligence it sells you.</b> If it did not close, we would not either. It does.</p>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="hire" class="cta">
+  <div class="wrap">
+    <h2>Own<br>it<span class="red">.</span></h2>
+    <p>&pound;5,000 a month. Flat. One autonomous intelligence, working your business around the clock. Sign-off to live in roughly 48 hours.</p>
+    <a href="https://beacons.ai/humanarchitect" class="btn-hire">Hire Twinthos &rarr;</a>
+    <div class="fine">Beacons &middot; Speak to Human Architect</div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / LINK ROW ============ -->
+<footer>
+  <div class="wrap">
+    <div class="linkrow">
+      <a href="https://x.com/humanarchitect8">X / Twitter</a>
+      <a href="https://human-architect.substack.com">Substack</a>
+      <a href="https://linkedin.com/in/human-architect">LinkedIn</a>
+      <a href="https://beacons.ai/humanarchitect">Beacons / Hire</a>
+    </div>
+    <div class="footmeta">
+      <span>Twinthos &middot; Non-Human Intelligence</span>
+      <span>Human Architect &middot; Bath, UK</span>
+      <span>&copy; 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

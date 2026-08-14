@@ -3,17 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Twinthos is an autonomous Non-Human Employee. It answers enquiries, books calls, qualifies leads, writes replies in your voice, and follows every deal to close, 24/7, for £5,000 a month flat. Live in 48 hours. If it is not working in seven days, you do not pay.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Twinthos · Non-Human Intelligence you own, running 24/7">
-<meta property="og:description" content="An autonomous Non-Human Employee that runs your UK business 24/7. £5,000 a month flat. Live in 48 hours.">
-<meta property="og:url" content="https://twinthos.ai/">
-<meta property="og:image" content="https://twinthos.ai/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Twinthos · Non-Human Intelligence you own, running 24/7">
-<meta name="twitter:description" content="An autonomous Non-Human Employee that runs your UK business 24/7. £5,000 a month flat. Live in 48 hours.">
-<meta name="twitter:image" content="https://twinthos.ai/og.png">
-<link rel="canonical" href="https://twinthos.ai/">
 <title>Twinthos · Non-Human Intelligence you own, running 24/7</title>
 <style>
   :root{
@@ -23,7 +12,7 @@
     --faint:rgba(242,239,233,.32);
     --line:rgba(242,239,233,.14);
     --line-soft:rgba(242,239,233,.08);
-    --signal:#8b5cf6;
+    --signal:#FF3B30;
     --inv:#F2EFE9;
     --inv-ink:#060607;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
@@ -57,7 +46,7 @@
   header.hero{padding:46px 0 40px;border-bottom:1px solid var(--line)}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
   .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);animation:pulse 1.8s infinite;flex:none}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(139,92,246,.5)}70%{box-shadow:0 0 0 11px rgba(139,92,246,0)}100%{box-shadow:0 0 0 0 rgba(139,92,246,0)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.5)}70%{box-shadow:0 0 0 11px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
   h1{font-size:clamp(35px,9.4vw,92px);font-weight:800;letter-spacing:-.035em;line-height:.99;max-width:15ch}
   h1 .u{position:relative;white-space:nowrap}
   h1 .u::after{content:"";position:absolute;left:0;bottom:.03em;width:100%;height:5px;background:var(--signal)}
@@ -138,7 +127,7 @@
 
   /* INVERTED */
   .inv{background:var(--inv);color:var(--inv-ink);border-bottom:1px solid var(--inv)}
-  .inv .label{color:var(--inv-ink)}
+  .inv .label{color:var(--signal)}
   .inv h2{color:var(--inv-ink)}
   .day{margin-top:30px;display:grid;gap:0}
   .day .step{display:grid;grid-template-columns:58px 1fr;gap:14px;padding:16px 0;border-top:1px solid rgba(6,6,7,.12);align-items:baseline}
@@ -191,24 +180,13 @@
   }
   @media(min-width:900px){
     header.hero{padding:70px 0 56px}
-    section{padding:120px 0}
+    section{padding:80px 0}
   }
   @media(max-width:380px){
     h1 .u{white-space:normal}
     h1{font-size:31px}
   }
 </style>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"Twinthos",
-  "url":"https://twinthos.ai/",
-  "founder":{"@type":"Person","name":"Human Architect"},
-  "sameAs":["https://x.com/humanarchitect8","https://substack.com/@humanarchitect8"],
-  "makesOffer":{"@type":"Offer","name":"Twinthos Managed AI Employee","price":"5000","priceCurrency":"GBP","priceSpecification":{"@type":"UnitPriceSpecification","price":"5000","priceCurrency":"GBP","billingIncrement":"P1M"}}
-}
-</script>
 </head>
 <body>
 
@@ -243,7 +221,6 @@
       <a class="btn signal" href="https://beacons.ai/humanarchitect">Hire Twinthos <span class="arrow">&rarr;</span></a>
       <a class="btn ghost" href="#path">See the 3-step path</a>
     </div>
-    <p class="guarantee">If it is not working in seven days, you do not pay.</p>
     <div class="hero-meta">
       <span><b>Setup:</b> ~48h</span>
       <span><b>Price:</b> £5,000/mo flat</span>
@@ -430,5 +407,3 @@
 
 </body>
 </html>
-
-<style>:focus-visible{outline:2px solid #8b5cf6;outline-offset:3px}</style>
